@@ -23,6 +23,4 @@ export class HomePage extends BasePage {
       console.log('Age modal not present or already dismissed');
     }
   }
-
-  
 }
