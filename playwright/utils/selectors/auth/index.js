@@ -37,3 +37,10 @@ export const WHOLESALER_SIGNUP_SELECTORS = {
   TYPE_OF_BUSINESS: '#business_type',
   SUBMIT_BTN: '#submitbuttonwhole'
 };
+
+// Reset Password selectors
+export const RESET_PASSWORD_SELECTORS = {
+  LOGIN_BTN: '#userloginpopup',
+  FORGOT_LINK: '#forgotpassword',
+  SUCCESS_MSG: 'text=Check your email'
+};
