@@ -1,1 +1,8 @@
 .env
+node_modules
+
+# Playwright
+test-results/
+playwright/reports/
+playwright-report/
+blob-report/

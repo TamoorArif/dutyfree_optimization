@@ -66,19 +66,20 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     // Setup project - runs authentication before other tests
-    {
-      name: 'setup',
-      testDir: './playwright/fixtures',
-      testMatch: /.*\.setup\.js/,
-    },
+    // TEMPORARILY DISABLED
+    // {
+    //   name: 'setup',
+    //   testDir: './playwright/fixtures',
+    //   testMatch: /.*\.setup\.js/,
+    // },
     {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
         // Use the authentication state saved by the setup project
-        storageState: 'playwright/.auth/user.json',
+        // TEMPORARILY DISABLED - storageState: 'playwright/.auth/user.json',
       },
-      dependencies: ['setup'],
+      // TEMPORARILY DISABLED - dependencies: ['setup'],
     },
 
     // {

@@ -10,7 +10,7 @@ export class LoginPage {
   }
 
   async visit() {
-    await this.page.goto('/practice-test-login');
+    await this.page.goto('');
   }
 
   async login(username, password) {
