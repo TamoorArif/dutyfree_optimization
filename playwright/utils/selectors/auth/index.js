@@ -18,4 +18,5 @@ export const SINGLE_USER_SIGNUP_SELECTORS = {
   CONFIRM_PASSWORD: '#confirm_passwords',
   SIGNUP_BTN: '#signupbutton',
   EMAIL_VERIFIED_SIGNUP: '#unique_verify_email',
+  ERROR_MESSAGE: '#errors',
 };

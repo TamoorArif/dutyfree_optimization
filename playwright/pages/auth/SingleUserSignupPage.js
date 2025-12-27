@@ -1,9 +1,9 @@
+import { BasePage } from '../BasePage.js';
 import { SINGLE_USER_SIGNUP_SELECTORS } from '../../utils/selectors/auth/index.js';
-import { HOME_SELECTORS } from '../../utils/selectors/home/index.js';
 
-export class SingleUserSignupPage {
+export class SingleUserSignupPage extends BasePage {
   constructor(page) {
-    this.page = page;
+    super(page);
     this.profileBtn = page.locator(SINGLE_USER_SIGNUP_SELECTORS.PROFILE_CLICK);
     this.singleuserhyperlink = page.locator(SINGLE_USER_SIGNUP_SELECTORS.SINGLE_USER_HYPERLINK);
     this.emailforsingleUser = page.locator(SINGLE_USER_SIGNUP_SELECTORS.EMAIL_FOR_SINGLE_USER);
@@ -12,6 +12,7 @@ export class SingleUserSignupPage {
     this.confirmPassword = page.locator(SINGLE_USER_SIGNUP_SELECTORS.CONFIRM_PASSWORD);
     this.signupBtn = page.locator(SINGLE_USER_SIGNUP_SELECTORS.SIGNUP_BTN);
     this.emailVerifiedSignup = page.locator(SINGLE_USER_SIGNUP_SELECTORS.EMAIL_VERIFIED_SIGNUP);
+    this.errorMessage = page.locator(SINGLE_USER_SIGNUP_SELECTORS.ERROR_MESSAGE);
   }
 
   async showSignupPopup() {
