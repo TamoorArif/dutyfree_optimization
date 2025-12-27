@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { HomePage } from '../../pages/home/HomePage.js';
 import { SingleUserSignupPage } from '../../pages/auth/SingleUserSignupPage.js';
-import { generateRandomEmail } from '../../utils/helpers/random-email-generator.js';
+import  generateRandomEmail from '../../utils/helpers/random-email-generator.js';
 
 test.beforeEach(async ({ page }) => {
     const homePage = new HomePage(page);
