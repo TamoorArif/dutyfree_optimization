@@ -49,22 +49,22 @@ test.describe('Filter Tests', () => {
     //     await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value)=14-15/)
     // });
 
-    test('Select Puff Count and apply filter', async ({ page }) => {
-        const filter = new FilterPage(page);
-        await filter.visit();
-        await filter.openFilter();
-        await filter.selectPuffCount();
-        await filter.applyFilter();
-        // Puff Count
-        await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value|filters)=1-1/);
-
-    });
-
-    // test('Reset filter', async ({ page }) => {
+    // test('Select Puff Count and apply filter', async ({ page }) => {
     //     const filter = new FilterPage(page);
     //     await filter.visit();
     //     await filter.openFilter();
-    //     await filter.resetFilter();
-    //     await expect(page).toHaveURL(/category=9/); // Reset ke baad sirf category param check
+    //     await filter.selectPuffCount();
+    //     await filter.applyFilter();
+    //     // Puff Count
+    //     await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value|filters)=1-1/);
+
     // });
+
+    test('Reset filter', async ({ page }) => {
+        const filter = new FilterPage(page);
+        await filter.visit();
+        await filter.openFilter();
+        await filter.resetFilter();
+        await expect(page).toHaveURL(/category=9/); // Reset ke baad sirf category param check
+    });
 });

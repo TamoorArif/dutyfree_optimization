@@ -85,7 +85,7 @@ export class FilterPage extends BasePage {
     }
 
     async resetFilter() {
-        await this.filterreset.waitFor({ state: 'attached', timeout: 10000 });
+        await this.filterreset.waitFor({ state: 'visible', timeout: 10000 });
         await this.filterreset.scrollIntoViewIfNeeded();
         await this.page.waitForTimeout(300);
         await this.filterreset.click({ force: true });

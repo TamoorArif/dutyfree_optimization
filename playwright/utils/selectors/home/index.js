@@ -26,6 +26,6 @@ export const FILTER_SELECTORS = {
     NICOTIN_STRENGTH2_LABEL: 'input[id="14-15"]',
     PUFF_COUNT_LABEL: 'input[id="1-1"]',
     FILTER_APPLY: 'button.btn.btn-primary:has-text("Apply"), button[type="submit"].btn.btn-primary',
-    FILTER_RESET: 'button.btn.btn-secondary:has-text("Reset")',
+    FILTER_RESET: 'a.df-btn-reset:has-text("Reset"), a.btn.df-btn-reset',
 };
 
