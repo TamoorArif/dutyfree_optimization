@@ -17,67 +17,43 @@ export class FilterPage extends BasePage {
     async openFilter() {
         await this.newArrivalsLink.click();
         await this.page.waitForTimeout(1000);
-        await this.filter.waitFor({ state: 'visible', timeout: 10000 });
+        await this.filter.waitFor({ state: 'visible', timeout: 1000 });
         await this.filter.scrollIntoViewIfNeeded();
-        await this.filter.click({ force: true, timeout: 10000 });
+        await this.filter.click({ force: true, timeout: 1000 });
         // Wait for filter panel to open and be ready
         await this.page.waitForTimeout(500);
     }
 
     async selectFlavour() {
-        // Try input first, then fallback to label
-        const inputLocator = this.page.locator('input[id="10-1"]');
-        const labelLocator = this.page.locator('label[for="10-1"], label[for="attrgroup_10_1"]');
-        
-        try {
-            await inputLocator.waitFor({ state: 'visible', timeout: 10000 });
-            await inputLocator.scrollIntoViewIfNeeded();
-            await this.page.waitForTimeout(300);
-            await inputLocator.click({ force: true });
-        } catch (e) {
-            // Fallback to label if input not found
-            await labelLocator.waitFor({ state: 'visible', timeout: 10000 });
-            await labelLocator.scrollIntoViewIfNeeded();
-            await this.page.waitForTimeout(300);
-            await labelLocator.click({ force: true });
-        }
+        await this.FlavoursLabel.waitFor({ state: 'visible', timeout: 1000 });
+        await this.FlavoursLabel.scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(300);
+        await this.FlavoursLabel.click({ force: true });
     }
 
     async selectNicotine() {
-        // Try input first, then fallback to label
-        const inputLocator = this.page.locator('input[id="13-517"]');
-        const labelLocator = this.page.locator('label[for="13-517"], label[for="attrval_13_517"]');
-        
-        try {
-            await inputLocator.waitFor({ state: 'visible', timeout: 10000 });
-            await inputLocator.scrollIntoViewIfNeeded();
-            await this.page.waitForTimeout(300);
-            await inputLocator.click({ force: true });
-        } catch (e) {
-            // Fallback to label if input not found
-            await labelLocator.waitFor({ state: 'visible', timeout: 10000 });
-            await labelLocator.scrollIntoViewIfNeeded();
-            await this.page.waitForTimeout(300);
-            await labelLocator.click({ force: true });
-        }
+        await this.NicotinStrengthLabel.waitFor({ state: 'visible', timeout: 1000 });
+        await this.NicotinStrengthLabel.scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(300);
+        await this.NicotinStrengthLabel.click({ force: true });
     }
 
     async selectNicotine2() {
-        await this.NicotinStrength2Label.waitFor({ state: 'attached', timeout: 10000 })
+        await this.NicotinStrength2Label.waitFor({ state: 'attached', timeout: 1000 })
         await this.NicotinStrength2Label.scrollIntoViewIfNeeded();
         await this.page.waitForTimeout(300);
         await this.NicotinStrength2Label.click({ force: true });
     }
 
     async selectPuffCount() {
-        await this.PuffCountLabel.waitFor({ state: 'attached', timeout: 10000 })
+        await this.PuffCountLabel.waitFor({ state: 'attached', timeout: 1000 })
         await this.PuffCountLabel.scrollIntoViewIfNeeded();
         await this.page.waitForTimeout(300);
         await this.PuffCountLabel.click({ force: true });
     }
 
     async applyFilter() {
-        await this.filterapply.waitFor({ state: 'visible', timeout: 10000 });
+        await this.filterapply.waitFor({ state: 'visible', timeout: 1000 });
         await this.filterapply.scrollIntoViewIfNeeded();
         await this.page.waitForTimeout(300);
         await this.filterapply.click({ force: true });
@@ -85,7 +61,7 @@ export class FilterPage extends BasePage {
     }
 
     async resetFilter() {
-        await this.filterreset.waitFor({ state: 'visible', timeout: 10000 });
+        await this.filterreset.waitFor({ state: 'visible', timeout: 1000 });
         await this.filterreset.scrollIntoViewIfNeeded();
         await this.page.waitForTimeout(300);
         await this.filterreset.click({ force: true });

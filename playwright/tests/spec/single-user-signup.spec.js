@@ -26,8 +26,8 @@ test.describe('Signup Tests', () => {
         await signupPage.showSignupPopup();
         await signupPage.signup(singleUserEmail, singleUserName, password, confirmPassword);
 
-        //   const verifiedEmail = await signupPage.getEmailVerified();
-        //   expect(verifiedEmail.trim()).toContain(singleUserEmail);
+          const verifiedEmail = await signupPage.getEmailVerified();
+          expect(verifiedEmail.trim()).toContain(singleUserEmail);
     });
 
     test('Negative: Duplicate Email Sign Up', async ({ page }) => {
