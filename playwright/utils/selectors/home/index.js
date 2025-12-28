@@ -23,7 +23,7 @@ export const FILTER_SELECTORS = {
     FILTER: ".btn.btn-secondary.border",
     FLAVOURS_LABEL: 'input[id="10-1"]',
     NICOTIN_STRENGTH_LABEL: 'input[id="13-517"]',
-    NICOTIN_STRENGTH2_LABEL: 'label[for="attrgroup_14_15"]',
+    NICOTIN_STRENGTH2_LABEL: 'input[id="14-15"]',
     PUFF_COUNT_LABEL: 'label[for="filter_1_1"]',
     FILTER_APPLY: 'button.btn.btn-primary:has-text("Apply"), button[type="submit"].btn.btn-primary',
     FILTER_RESET: '#filterreset',
