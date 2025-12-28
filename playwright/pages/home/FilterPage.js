@@ -44,10 +44,22 @@ export class FilterPage extends BasePage {
     }
 
     async selectNicotine() {
-        await this.NicotinStrengthLabel.waitFor({state:'attached',timeout:10000})
-        await this.NicotinStrengthLabel.scrollIntoViewIfNeeded();
-        await this.page.waitForTimeout(300);
-        await this.NicotinStrengthLabel.click({ force: true });
+        // Try input first, then fallback to label
+        const inputLocator = this.page.locator('input[id="13-517"]');
+        const labelLocator = this.page.locator('label[for="13-517"], label[for="attrval_13_517"]');
+        
+        try {
+            await inputLocator.waitFor({ state: 'visible', timeout: 10000 });
+            await inputLocator.scrollIntoViewIfNeeded();
+            await this.page.waitForTimeout(300);
+            await inputLocator.click({ force: true });
+        } catch (e) {
+            // Fallback to label if input not found
+            await labelLocator.waitFor({ state: 'visible', timeout: 10000 });
+            await labelLocator.scrollIntoViewIfNeeded();
+            await this.page.waitForTimeout(300);
+            await labelLocator.click({ force: true });
+        }
     }
 
     async selectNicotine2() {
