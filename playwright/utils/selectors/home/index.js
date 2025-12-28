@@ -39,3 +39,15 @@ export const SEARCH_SELECTORS = {
     ITEM_CATEGORY: '.oe_product_category',
     ITEM_PRICE: '.oe_currency_value',
 };
+
+// Sort selectors
+export const SORT_SELECTORS = {
+    NEW_ARRIVALS_LINK: '#auto_id_20',
+    SORT_BUTTON: '.o_sortby_dropdown .dropdown-toggle',
+    SORT_MENU: '.dropdown-menu.dropdown-menu-end.show',
+    FEATURED: '#sort_option_website_sequence_asc',
+    NEWEST: '#sort_option_create_date_desc',
+    AZ: '#sort_option_website_sequence_asc',
+    LOW_HIGH: '#sort_option_list_price_asc',
+    HIGH_LOW: '#sort_option_list_price_desc',
+};
