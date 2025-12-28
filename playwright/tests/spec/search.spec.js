@@ -13,7 +13,6 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe('Search Dropdown Tests', () => {
-
     test('Verify complete search dropdown functionality', async ({ page }) => {
         const searchPage = new SearchPage(page);
         await searchPage.visit();
@@ -25,32 +24,31 @@ test.describe('Search Dropdown Tests', () => {
         await searchPage.itemClick()
     });
 
-    //     test('Verify no result case', async ({ page }) => {
-    //       const searchPage = new SearchPage(page);
-    //       await searchPage.visit();
+    test('Verify no result case', async ({ page }) => {
+        const searchPage = new SearchPage(page);
+        await searchPage.visit();
 
-    //       await searchPage.typeSearch('xyzabc123');
-    //       const count= await searchPage.resultCount();
+        await searchPage.typeSearch('xyzabc123');
+        const count = await searchPage.resultCount();
 
-    //       expect(count).toBe(0);    // No suggestions
-    //   });
+        expect(count).toBe(0);    // No suggestions
+    });
 
-    // test('Close dropdown - ESC + outside click', async ({ page }) => {
-    //   const searchPage = new SearchPage(page);
+    test('Close dropdown - ESC + outside click', async ({ page }) => {
+      const searchPage = new SearchPage(page);
 
-    //   await searchPage.visit();
-    //   await searchPage.typeSearch('vel');
+      await searchPage.visit();
+      await searchPage.typeSearch('vel');
 
-    //   // ESC close
-    //   await searchPage.closeDropdownByESC();
-    //   await expect(searchPage.dropdown).not.toBeVisible();
+      // ESC close
+      await searchPage.closeDropdownByESC();
+      await expect(searchPage.dropdown).not.toBeVisible();
 
-    //   // Again open
-    //   await searchPage.typeSearch('vel');
+      // Again open
+      await searchPage.typeSearch('vel');
 
-    //   // Outside click close
-    //   await searchPage.clickOutside();
-    //   await expect(searchPage.dropdown).not.toBeVisible();
-    // });
-
+      // Outside click close
+      await searchPage.clickOutside();
+      await expect(searchPage.dropdown).not.toBeVisible();
+    });
 });
