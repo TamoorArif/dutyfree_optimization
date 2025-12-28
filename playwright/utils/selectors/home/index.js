@@ -28,3 +28,14 @@ export const FILTER_SELECTORS = {
     FILTER_APPLY: '#filterapply',
     FILTER_RESET: '#filterreset',
 };
+//Search selectors
+export const SEARCH_SELECTORS = {
+    SEARCH_INPUT: '#auto_id_107',
+    DROPDOWN: '.o_searchbar_form .o_dropdown_menu',
+    RESULT_ITEMS: '.o_searchbar_form .o_dropdown_menu .dropdown-item',
+    NO_RESULT_TEXT: 'No results',
+    ITEM_IMAGE: '.oe_product_image',
+    ITEM_TITLE: '.oe_product_name',
+    ITEM_CATEGORY: '.oe_product_category',
+    ITEM_PRICE: '.oe_currency_value',
+};
