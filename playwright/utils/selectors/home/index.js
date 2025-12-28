@@ -16,3 +16,16 @@ export const NEW_ARRIVALS_SELECTORS = {
         '[class*="product"] h1'
     ],
 };
+
+// Filter selectors
+export const FILTER_SELECTORS = {
+    NEW_ARRIVALS_LINK: '#auto_id_20',
+    FILTER: ".btn.btn-secondary.border",
+    FLAVOURS_LABEL: 'input[id="10-1"]',
+    NICOTIN_STRENGTH_LABEL: 'label[for="attrval_13_517"]',
+    NICOTIN_STRENGTH2_LABEL: 'label[for="attrgroup_14_15"]',
+    PUFF_COUNT_LABEL: 'label[for="filter_1_1"]',
+    FILTER_APPLY: '#filterapply',
+    FILTER_RESET: '#filterreset',
+};
+
