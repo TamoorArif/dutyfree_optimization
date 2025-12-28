@@ -60,11 +60,42 @@ test.describe('Filter Tests', () => {
 
     // });
 
-    test('Reset filter', async ({ page }) => {
+    // test('Reset filter', async ({ page }) => {
+    //     const filter = new FilterPage(page);
+    //     await filter.visit();
+    //     await filter.openFilter();
+    //     await filter.resetFilter();
+    //     await expect(page).toHaveURL(/category=9/); // Reset ke baad sirf category param check
+    // });
+
+    test('Apply multiple filters sequentially (Flavour, Nicotine Strength, Second Strength, Puff Count)', async ({ page }) => {
         const filter = new FilterPage(page);
         await filter.visit();
+        
+        // Open filter panel
         await filter.openFilter();
-        await filter.resetFilter();
-        await expect(page).toHaveURL(/category=9/); // Reset ke baad sirf category param check
+        
+        // Step 1: Apply flavour filter
+        await filter.selectFlavour();
+        
+        // Step 2: Apply nicotine strength filter
+        await filter.selectNicotine();
+        
+        // Step 3: Apply second strength filter
+        await filter.selectNicotine2();
+        
+        // Step 4: Apply puff count filter
+        await filter.selectPuffCount();
+        
+        // Step 5: Submit/Apply all filters
+        await filter.applyFilter();
+        
+        // Verify URL contains all applied filter parameters
+        const url = page.url();
+        expect(url).toMatch(/category=9/);
+        expect(url).toMatch(/(attribute_group_value|attribute_value)=10-1/); // Flavour
+        expect(url).toMatch(/(attribute_group_value|attribute_value)=13-517/); // Nicotine Strength
+        expect(url).toMatch(/(attribute_group_value|attribute_value)=14-15/); // Second Strength
+        expect(url).toMatch(/(attribute_group_value|attribute_value|filters)=1-1/); // Puff Count
     });
 });

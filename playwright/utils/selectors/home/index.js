@@ -23,8 +23,8 @@ export const FILTER_SELECTORS = {
     FILTER: ".btn.btn-secondary.border",
     FLAVOURS_LABEL: 'input[id="10-1"]',
     NICOTIN_STRENGTH_LABEL: 'input[id="13-517"]',
-    NICOTIN_STRENGTH2_LABEL: 'input[id="14-15"]',
-    PUFF_COUNT_LABEL: 'input[id="1-1"]',
+    NICOTIN_STRENGTH2_LABEL: 'input[id="attrgroup_14_15"]',
+    PUFF_COUNT_LABEL: 'input[id="filter_1_1"]',
     FILTER_APPLY: 'button.btn.btn-primary:has-text("Apply"), button[type="submit"].btn.btn-primary',
     FILTER_RESET: 'a.df-btn-reset:has-text("Reset"), a.btn.df-btn-reset',
 };
