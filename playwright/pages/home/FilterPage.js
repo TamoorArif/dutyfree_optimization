@@ -66,7 +66,9 @@ export class FilterPage extends BasePage {
 
     async applyFilter() {
         await this.filterapply.waitFor({ state: 'visible', timeout: 10000 });
-        await this.filterapply.click();
+        await this.filterapply.scrollIntoViewIfNeeded();
+        await this.page.waitForTimeout(300);
+        await this.filterapply.click({ force: true });
         await this.page.waitForLoadState('networkidle');
     }
 

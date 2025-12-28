@@ -25,7 +25,7 @@ export const FILTER_SELECTORS = {
     NICOTIN_STRENGTH_LABEL: 'label[for="attrval_13_517"]',
     NICOTIN_STRENGTH2_LABEL: 'label[for="attrgroup_14_15"]',
     PUFF_COUNT_LABEL: 'label[for="filter_1_1"]',
-    FILTER_APPLY: '#filterapply',
+    FILTER_APPLY: 'button.btn.btn-primary:has-text("Apply"), button[type="submit"].btn.btn-primary',
     FILTER_RESET: '#filterreset',
 };
 
