@@ -40,25 +40,25 @@ test.describe('Filter Tests', () => {
     //     ;
     // });
 
-    test('Select Nicotine Strength 2 and apply filter', async ({ page }) => {
-        const filter = new FilterPage(page);
-        await filter.visit();
-        await filter.openFilter();
-        await filter.selectNicotine2();
-        await filter.applyFilter();
-        await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value)=14-15/)
-    });
-
-    // test('Select Puff Count and apply filter', async ({ page }) => {
+    // test('Select Nicotine Strength 2 and apply filter', async ({ page }) => {
     //     const filter = new FilterPage(page);
     //     await filter.visit();
     //     await filter.openFilter();
-    //     await filter.selectPuffCount();
+    //     await filter.selectNicotine2();
     //     await filter.applyFilter();
-    //     // Puff Count
-    //     await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value|filters)=1-1/);
-
+    //     await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value)=14-15/)
     // });
+
+    test('Select Puff Count and apply filter', async ({ page }) => {
+        const filter = new FilterPage(page);
+        await filter.visit();
+        await filter.openFilter();
+        await filter.selectPuffCount();
+        await filter.applyFilter();
+        // Puff Count
+        await expect(page).toHaveURL(/category=9.*(attribute_group_value|attribute_value|filters)=1-1/);
+
+    });
 
     // test('Reset filter', async ({ page }) => {
     //     const filter = new FilterPage(page);

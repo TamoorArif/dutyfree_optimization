@@ -24,8 +24,8 @@ export const FILTER_SELECTORS = {
     FLAVOURS_LABEL: 'input[id="10-1"]',
     NICOTIN_STRENGTH_LABEL: 'input[id="13-517"]',
     NICOTIN_STRENGTH2_LABEL: 'input[id="14-15"]',
-    PUFF_COUNT_LABEL: 'label[for="filter_1_1"]',
+    PUFF_COUNT_LABEL: 'input[id="1-1"]',
     FILTER_APPLY: 'button.btn.btn-primary:has-text("Apply"), button[type="submit"].btn.btn-primary',
-    FILTER_RESET: '#filterreset',
+    FILTER_RESET: 'button.btn.btn-secondary:has-text("Reset")',
 };
 
