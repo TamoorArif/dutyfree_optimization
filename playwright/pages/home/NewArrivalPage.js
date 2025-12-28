@@ -17,7 +17,8 @@ export class NewArrivalsPage extends BasePage {
     // Navigate to New Arrivals - ensure link is clickable
     await expect(this.newArrivalsLink).toBeVisible();
     await this.newArrivalsLink.click();
-    await expect(this.page).toHaveURL("/shop/category/new-arrivals-duty-free-smoke", { timeout: 20000 });
+    // Wait for URL to match New Arrivals page (can be with query params or category path)
+    await expect(this.page).toHaveURL(/\/shop(\?.*brand=1.*category=9|.*new-arrivals)/, { timeout: 20000 });
 
     // Wait for page to load
     await this.page.waitForLoadState('networkidle', { timeout: 15000 }).catch(() => {});
