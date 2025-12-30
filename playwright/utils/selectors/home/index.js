@@ -51,3 +51,11 @@ export const SORT_SELECTORS = {
     LOW_HIGH: '#sort_option_list_price_asc',
     HIGH_LOW: '#sort_option_list_price_desc',
 };
+// banner selectors
+export const BANNER_SELECTORS = {
+    CAROUSEL: '[data-name="Main Banner Slider"] .carousel-inner',
+    SLIDES: '[data-name="Main Banner Slider"] .carousel-item',
+    INDICATORS: '[data-name="Main Banner Slider"] .carousel-indicators button',
+    NEXT_ARROW: '[data-name="Main Banner Slider"] .carousel-control-next',
+    PREV_ARROW: '[data-name="Main Banner Slider"] .carousel-control-prev',
+};
