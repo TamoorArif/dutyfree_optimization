@@ -28,46 +28,22 @@ test.describe('Wholesaler Multiple Items Tests', () => {
         const wholesellersPage = new WholesalerMultipleCartPage(page);
         await wholesellersPage.visit();
         
-        // Add 5 products with 3 items each (default)
+        // Add 3 products with 3 items each (default)
         const addedProducts = await wholesellersPage.addMultipleItemsToCart();
-        await page.waitForTimeout(2000);
+        await page.waitForLoadState('networkidle');
         expect(addedProducts).toBeGreaterThan(0);
         
         await wholesellersPage.checkout();
     });
 
-    // test('Verify wholeseller can add 3 products with 2 items each to cart & complete checkout', async ({ page }) => {
-    //     const wholesellersPage = new WholesalerMultipleCartPage(page);
-    //     await wholesellersPage.visit();
+    test('Verify wholeseller can add 3 products with 2 items each to cart & complete checkout', async ({ page }) => {
+        const wholesellersPage = new WholesalerMultipleCartPage(page);
+        await wholesellersPage.visit();
         
-    //     // Add 3 products with 2 items each
-    //     const addedProducts = await wholesellersPage.addMultipleItemsToCart(3, 2);
-    //     expect(addedProducts).toBeGreaterThan(0);
+        // Add 3 products with 2 items each
+        const addedProducts = await wholesellersPage.addMultipleItemsToCart(3, 2);
+        expect(addedProducts).toBeGreaterThan(0);
         
-    //     await wholesellersPage.checkout();
-    // });
-
-    // test.only('Verify wholeseller can add multiple products to cart and verify cart quantity', async ({ page }) => {
-    //     const wholesellersPage = new WholesalerMultipleCartPage(page);
-    //     await wholesellersPage.visit();
-        
-    //     // Get initial cart quantity
-    //     const initialQuantity = await wholesellersPage.cartQuantity.textContent().catch(() => '0');
-    //     console.log("initialQuantity", initialQuantity);
-    //     const initialQty = Number(initialQuantity) || 0;
-    //     console.log("initialQty", initialQty);
-    //     // Add 2 products with 2 items each
-    //     const addedProducts = await wholesellersPage.addMultipleItemsToCart(2, 2);
-    //     expect(addedProducts).toBeGreaterThan(0);
-        
-    //     // Wait for cart to update
-    //     await page.waitForTimeout(2000);
-        
-    //     // Verify cart quantity increased
-    //     const finalQuantity = await wholesalersPage.cartQuantity.textContent().catch(() => '0');
-    //     const finalQty = Number(finalQuantity) || 0;
-    //     console.log("finalQuantity", finalQuantity);
-    //     console.log("finalQty", finalQty);
-    //     expect(finalQty).toBeGreaterThan(initialQty);
-    // });
+        await wholesellersPage.checkout();
+    });
 });

@@ -103,7 +103,7 @@ export class WholesalerMultipleCartPage extends BasePage {
 
                     // Wait for success message
                     try {
-                        await expect(this.successMessage).toBeVisible({ timeout: 5000 });
+                        await expect(this.successMessage).toBeVisible({ timeout: 7000 });
                         await expect(this.successMessage).toHaveText('Item successfully added into the cart.');
                     } catch {}
 
