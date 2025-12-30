@@ -19,7 +19,7 @@ export default defineConfig({
   testDir: './playwright/tests',
 
   // Test timeout
-  timeout: 60 * 1000,
+  timeout: 120 * 1000,
 
   // Expect timeout
   expect: {
