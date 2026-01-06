@@ -59,3 +59,13 @@ export const BANNER_SELECTORS = {
     NEXT_ARROW: '[data-name="Main Banner Slider"] .carousel-control-next',
     PREV_ARROW: '[data-name="Main Banner Slider"] .carousel-control-prev',
 };
+export const CONTACT_SELECTORS = {
+    contact_us_LINK:"#auto_id_22",
+    Name:"#contact_name",
+    Phone_Number:"#contact_phone",
+    Email:"#contact_email",
+    Massege:"#contact_message",
+    Attachment:"#contact_attachment",
+    Submit_Button:"#contact_submit"
+    
+};
