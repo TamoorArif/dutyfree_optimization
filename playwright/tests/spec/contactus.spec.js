@@ -14,32 +14,32 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Contact Us Page Tests', () => {
 
-  // test('Positive: Verify Contact Us form submission with all fields', async ({ page }) => {
-  //   const contactUsPage = new ContactUsPage(page);
+  test('Positive: Verify Contact Us form submission with all fields', async ({ page }) => {
+    const contactUsPage = new ContactUsPage(page);
 
-  //   // Open Contact Us
-  //   await contactUsPage.openContactUs();
+    // Open Contact Us
+    await contactUsPage.openContactUs();
 
-  //   // Verify form loaded
-  //   await contactUsPage.verifyFormVisible();
+    // Verify form loaded
+    await contactUsPage.verifyFormVisible();
 
-  //   // Fill form with valid data
-  //   await contactUsPage.fillContactForm({
-  //     name: 'Test User',
-  //     phone: '03001234567',
-  //     email: 'testuser@mail.com',
-  //     message: 'This is an automated test message'
-  //   });
+    // Fill form with valid data
+    await contactUsPage.fillContactForm({
+      name: 'Test User',
+      phone: '03001234567',
+      email: 'testuser@mail.com',
+      message: 'This is an automated test message'
+    });
 
-  //   // Upload attachment (optional)
-  //   await contactUsPage.uploadAttachment('D:\Dutyfreesmoke2\myproject\playwright\fixtures\sample.pdf');
+    // Upload attachment (optional)
+    await contactUsPage.uploadAttachment('playwright/fixtures/sample.pdf');
 
-  //   // Submit form
-  //   await contactUsPage.submitForm();
+    // Submit form
+    await contactUsPage.submitForm();
 
-  //   // Verify success (check for success message or URL change)
-  //   await contactUsPage.verifySuccess();
-  // });
+    // Verify success (check for success message or URL change)
+    await contactUsPage.verifySuccess();
+  });
 
   test('Positive: Verify Contact Us form submission without attachment', async ({ page }) => {
     const contactUsPage = new ContactUsPage(page);
