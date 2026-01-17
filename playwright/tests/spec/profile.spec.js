@@ -24,9 +24,9 @@ test.describe('Profile Tests', () => {
 
         await profilePage.fillProfileFields({
             // name: 'Test User',
-            email: 'test@example.com',
-            phone: '03429465221',
-            street: '123 Test Street',
+            email: 'support@dutyfreesmoke.com',
+            phone: '03429465227',
+            street: '123 Duty Free Smoke Street',
             city: 'Test City',
             state: 'Test State',
             zip: '12345',
@@ -56,5 +56,7 @@ test.describe('Profile Tests', () => {
 
         const errorText = await profilePage.getErrorMessage(); // Verify error message contains the expected text
         expect(errorText).toContain('Changing your name is not allowed');
+
+        await page.waitForTimeout(3000); // Keep error message visible for 3 seconds
     });
 });
