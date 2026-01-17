@@ -13,4 +13,5 @@ export const PROFILE_SELECTORS = {
     UPS_NUMBER_FIELD: '#my_account_ups_account',
     SAVE_BTN: '#my_account_save_btn',
     DISCARD_BTN: '#my_account_discard_btn',
+    ALERT_MESSAGE: '.alert.alert-danger',
 }

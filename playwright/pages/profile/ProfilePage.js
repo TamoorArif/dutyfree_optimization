@@ -24,6 +24,8 @@ export class ProfilePage extends BasePage {
         this.invoiceMethodDropdown = page.locator(PROFILE_SELECTORS.INVOICE_METHOD_FIELD);
         this.electronicFormatDropdown = page.locator(PROFILE_SELECTORS.ELECTRONIC_FORMAT_FIELD);
         this.upsNumberField = page.locator(PROFILE_SELECTORS.UPS_NUMBER_FIELD);
+        // Alert messages
+        this.alertMessage = page.locator(PROFILE_SELECTORS.ALERT_MESSAGE).first();
     }
 
     async gotoProfilePage() {
@@ -43,17 +45,15 @@ export class ProfilePage extends BasePage {
     }
 
     async fillProfileFields(profileData, typingDelay = 50) {
-        // Clear and type character by character
+        if (profileData.name) {
+            await this.nameField.clear();
+            await this.nameField.type(profileData.name, { delay: typingDelay });
+        }
 
-        // if (profileData.name) {
-        //     await this.nameField.clear();
-        //     await this.nameField.type(profileData.name, { delay: typingDelay });
-        // }
-
-        // if (profileData.email) {
-        //     await this.emailField.clear();
-        //     await this.emailField.type(profileData.email, { delay: typingDelay });
-        // }
+        if (profileData.email) {
+            await this.emailField.clear();
+            await this.emailField.type(profileData.email, { delay: typingDelay });
+        }
         
         if (profileData.phone) {
             await this.phoneField.clear();
@@ -72,10 +72,11 @@ export class ProfilePage extends BasePage {
             await this.zipField.type(profileData.zip, { delay: typingDelay });
         }
         
-        // Dropdown selections (instant, no typing needed)
+        // Dropdown selections
         if (profileData.invoiceMethod) {
             await this.invoiceMethodDropdown.selectOption(profileData.invoiceMethod);
         }
+        
         if (profileData.electronicFormat) {
             await this.electronicFormatDropdown.selectOption(profileData.electronicFormat);
         }
@@ -88,5 +89,14 @@ export class ProfilePage extends BasePage {
 
     async clickSaveBtn() {
         await this.saveBtn.click();
+    }
+
+    async getErrorMessage() {
+        await this.alertMessage.waitFor({ state: 'visible', timeout: 10000 });
+        return await this.alertMessage.textContent();
+    }
+
+    async isErrorMessageVisible() {
+        return await this.alertMessage.isVisible({ timeout: 3000 }).catch(() => false);
     }
 }

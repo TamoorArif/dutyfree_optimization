@@ -19,14 +19,9 @@ test.beforeEach(async ({ page }) => {
 test.describe('Profile Tests', () => {
     test('Positive: Edit Profile - Fill Fields', async ({ page }) => {
         const profilePage = new ProfilePage(page);
+        await profilePage.gotoProfilePage(); // Navigate to profile page
+        await profilePage.openEditProfile(); // Open edit profile
 
-        // Navigate to profile page
-        await profilePage.gotoProfilePage();
-
-        // Open edit profile
-        await profilePage.openEditProfile();
-
-        // Fill profile fields with values
         await profilePage.fillProfileFields({
             // name: 'Test User',
             email: 'test@example.com',
@@ -40,13 +35,26 @@ test.describe('Profile Tests', () => {
             upsNumber: '1234567890', // UPS Number Account
         });
 
-        // Click save button
-        await profilePage.clickSaveBtn();
+        await profilePage.clickSaveBtn(); // Click save button
 
-        // Expect page to be on profile page after save
         await expect(page).toHaveURL('https://stage-dutyfree.odoo.com/my/home', { timeout: 10000 });
+    });
 
-        // Wait to see any error messages (keep page open)
-        await page.waitForTimeout(5000);
+    test('Negative: Edit Profile - Name Change Not Allowed', async ({ page }) => {
+        const profilePage = new ProfilePage(page);
+        await profilePage.gotoProfilePage(); // Navigate to profile page
+        await profilePage.openEditProfile();  // Open edit profile
+
+        await profilePage.fillProfileFields({
+            name: 'Updated Test Name',
+        }, 50);
+
+        await profilePage.clickSaveBtn(); // Click save button  
+
+        const errorVisible = await profilePage.isErrorMessageVisible(); // Wait for error message to appear
+        expect(errorVisible).toBeTruthy();
+
+        const errorText = await profilePage.getErrorMessage(); // Verify error message contains the expected text
+        expect(errorText).toContain('Changing your name is not allowed');
     });
 });
