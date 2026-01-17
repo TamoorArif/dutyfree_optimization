@@ -1,12 +1,11 @@
 export const PROFILE_SELECTORS = {
-    EDIT_PROFILE_BTN: 'a[role="button"][href="/my/account"]',
+    EDIT_PROFILE_BTN: '#myaccount_edit_information_btn',
     NAME_FIELD: '#my_account_name',
     EMAIL_FIELD: '#my_account_email',
     PHONE_FIELD: '#my_account_phone',
     STREET_FIELD: '#my_account_street',
     CITY_FIELD: '#my_account_city',
     STREET2_FIELD: '#my_account_street2',
-    STATE_FIELD: '#my_account_state',
     ZIP_FIELD: '#my_account_zipcode',
     COUNTRY_FIELD: '#my_account_country',
     INVOICE_METHOD_FIELD: '#my_account_invoice_method',
@@ -14,6 +13,4 @@ export const PROFILE_SELECTORS = {
     UPS_NUMBER_FIELD: '#my_account_ups_account',
     SAVE_BTN: '#my_account_save_btn',
     DISCARD_BTN: '#my_account_discard_btn',
-
-    
 }
