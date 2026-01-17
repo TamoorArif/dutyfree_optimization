@@ -32,7 +32,7 @@ test.describe('Contact Us Page Tests', () => {
     });
 
     // Upload attachment (optional)
-    await contactUsPage.uploadAttachment('tests/fixtures/sample.pdf');
+    await contactUsPage.uploadAttachment('playwright/fixtures/sample.pdf');
 
     // Submit form
     await contactUsPage.submitForm();

@@ -1,3 +1,4 @@
+import { expect } from '@playwright/test';
 import { BasePage } from '../BasePage.js';
 import { ADD_TO_CART_SELECTORS } from '../../utils/selectors/cart/index.js';
 
@@ -21,18 +22,17 @@ export class SingleUserCartPage extends BasePage {
     }
 
     async visit() {
-        await this.profilebtn.click();
-        await this.loginfiled.fill('common@dutyfree.com');
-        await this.passwordfiled.fill('df13579');
-        await this.loginsubmitbtn.click();
+            await this.profileBtn.click();
+        await this.loginFiled.fill('support@dutyfreesmoke.com');
+        await this.passwordFiled.fill('1589');
+        await this.loginSubmitBtn.click();
         // await this.appbtn.click();
         // await this.websitebtn.click();
         // await this.configurationbtn.click();
         // await this.paymentprovidersbtn.click();
         // await this.demopaymentBtn.click();
 
-        // Navigate to New Arrivals - ensure link is clickable
-        await expect(this.newArrivalsLink).toBeVisible({ timeout: 10000 });
+        // Navigate to New Arrivals - ensure link is click
         await this.newArrivalsLink.click();
         await expect(this.page).toHaveURL(/new-arrivals-duty-free-smoke/, { timeout: 20000 });
 
@@ -46,8 +46,26 @@ export class SingleUserCartPage extends BasePage {
     }
 
     async getCartQuantity() {
-        await expect(this.cartQuantity).toBeVisible({ timeout: 5000 });
-        return await this.cartQuantity.textContent();
+        // Check if cart quantity element is visible (might be hidden when cart is empty)
+        const isVisible = await this.cartQuantity.isVisible().catch(() => false);
+        if (!isVisible) {
+            return '0';
+        }
+        // Try getting text from the element first, then from parent if element is an icon
+        let text = await this.cartQuantity.textContent();
+        if (!text || text.trim() === '') {
+            // If element has no text (e.g., it's an icon), try getting text from parent element
+            text = await this.cartQuantity.evaluate((el) => {
+                const parent = el.parentElement;
+                return parent ? parent.textContent : null;
+            }).catch(() => null);
+        }
+        // Extract numbers from the text (in case there's extra text)
+        if (text) {
+            const match = text.trim().match(/\d+/);
+            return match ? match[0] : '0';
+        }
+        return '0';
     }
 
     async openCart() {

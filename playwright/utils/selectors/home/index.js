@@ -67,5 +67,11 @@ export const CONTACT_SELECTORS = {
     Massege:"#contact_message",
     Attachment:"#contact_attachment",
     Submit_Button:"#contact_submit"
-    
+};
+// Brand selectors
+export const BRAND_SELECTORS = {
+    BRAND_LINK: '#auto_id_28',
+    PRODUCTS_GRID: '#products_grid .col-lg-3',
+    BRAND_NAME: 'a.dropdown-item[role="menuitem"][href*="/brand/"]',
+    PRODUCT_LINKS: 'a[href*="/shop/"]:has(img)',
 };
