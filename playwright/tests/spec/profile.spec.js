@@ -35,6 +35,9 @@ test.describe('Profile Tests', () => {
             city: 'Test City',
             state: 'Test State',
             zip: '12345',
+            invoiceMethod: 'email', // Options: 'email' or 'snailmail'
+            electronicFormat: 'facturx', // Options: 'facturx', 'ubl_bis3', 'xrechnung', etc.
+            upsNumber: '1234567890', // UPS Number Account
         });
 
         // Click save button
