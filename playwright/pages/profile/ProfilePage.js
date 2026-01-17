@@ -23,7 +23,7 @@ export class ProfilePage extends BasePage {
         // Dropdowns
         this.invoiceMethodDropdown = page.locator(PROFILE_SELECTORS.INVOICE_METHOD_FIELD);
         this.electronicFormatDropdown = page.locator(PROFILE_SELECTORS.ELECTRONIC_FORMAT_FIELD);
-        this.upsNumberDropdown = page.locator(PROFILE_SELECTORS.UPS_NUMBER_FIELD);
+        this.upsNumberField = page.locator(PROFILE_SELECTORS.UPS_NUMBER_FIELD);
     }
 
     async gotoProfilePage() {
@@ -42,19 +42,48 @@ export class ProfilePage extends BasePage {
         await this.editProfileBtn.click();
     }
 
-    async fillProfileFields(profileData) {
-        // if (profileData.name) await this.nameField.fill(profileData.name);
-        // if (profileData.email) await this.emailField.fill(profileData.email);
-        if (profileData.phone) await this.phoneField.fill(profileData.phone);
-        if (profileData.street) await this.streetField.fill(profileData.street);
-        if (profileData.city) await this.cityField.fill(profileData.city);
-        if (profileData.zip) await this.zipField.fill(profileData.zip);
+    async fillProfileFields(profileData, typingDelay = 50) {
+        // Clear and type character by character
+
+        // if (profileData.name) {
+        //     await this.nameField.clear();
+        //     await this.nameField.type(profileData.name, { delay: typingDelay });
+        // }
+
+        // if (profileData.email) {
+        //     await this.emailField.clear();
+        //     await this.emailField.type(profileData.email, { delay: typingDelay });
+        // }
         
-        // Dropdown selections
-        if (profileData.invoiceMethod) await this.invoiceMethodDropdown.selectOption(profileData.invoiceMethod);
-        if (profileData.electronicFormat) await this.electronicFormatDropdown.selectOption(profileData.electronicFormat);
-       
-        if (profileData.upsNumber) await this.upsNumberDropdown.fill(profileData.upsNumber);
+        if (profileData.phone) {
+            await this.phoneField.clear();
+            await this.phoneField.type(profileData.phone, { delay: typingDelay });
+        }
+        if (profileData.street) {
+            await this.streetField.clear();
+            await this.streetField.type(profileData.street, { delay: typingDelay });
+        }
+        if (profileData.city) {
+            await this.cityField.clear();
+            await this.cityField.type(profileData.city, { delay: typingDelay });
+        }
+        if (profileData.zip) {
+            await this.zipField.clear();
+            await this.zipField.type(profileData.zip, { delay: typingDelay });
+        }
+        
+        // Dropdown selections (instant, no typing needed)
+        if (profileData.invoiceMethod) {
+            await this.invoiceMethodDropdown.selectOption(profileData.invoiceMethod);
+        }
+        if (profileData.electronicFormat) {
+            await this.electronicFormatDropdown.selectOption(profileData.electronicFormat);
+        }
+        
+        if (profileData.upsNumber) {
+            await this.upsNumberField.clear();
+            await this.upsNumberField.type(profileData.upsNumber, { delay: typingDelay });
+        }
     }
 
     async clickSaveBtn() {
