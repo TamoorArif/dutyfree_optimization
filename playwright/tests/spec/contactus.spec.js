@@ -1,6 +1,7 @@
 import { test, expect } from '@playwright/test';
 import { ContactUsPage } from '../../pages/home/ContactusPage.js';
 import { HomePage } from '../../pages/home/HomePage.js';
+import path from 'path';
 
 test.beforeEach(async ({ page }) => {
   const homePage = new HomePage(page);
@@ -32,7 +33,9 @@ test.describe('Contact Us Page Tests', () => {
     });
 
     // Upload attachment (optional)
-    await contactUsPage.uploadAttachment('playwright/fixtures/sample.pdf');
+    // Path is relative to project root where tests are run
+    const filePath = path.join(process.cwd(), 'playwright/fixtures/sample.pdf');
+    await contactUsPage.uploadAttachment(filePath);
 
     // Submit form
     await contactUsPage.submitForm();
