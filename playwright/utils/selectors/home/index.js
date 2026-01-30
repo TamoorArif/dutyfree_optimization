@@ -30,7 +30,7 @@ export const FILTER_SELECTORS = {
 };
 //Search selectors
 export const SEARCH_SELECTORS = {
-    SEARCH_INPUT: '#auto_id_107',
+    SEARCH_INPUT: '#o_main_nav .input-group .search-query.form-control',
     DROPDOWN: '.o_searchbar_form .o_dropdown_menu',
     RESULT_ITEMS: '.o_searchbar_form .o_dropdown_menu .dropdown-item',
     NO_RESULT_TEXT: 'No results',
