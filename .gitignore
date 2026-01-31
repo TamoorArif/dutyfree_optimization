@@ -6,3 +6,7 @@ test-results/
 playwright/reports/
 playwright-report/
 blob-report/
+
+# Allure
+allure-report/
+allure-results/
